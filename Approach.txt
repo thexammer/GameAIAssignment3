@@ -1,0 +1,11 @@
+I decided to take an approach similar to the idea of Steering Forces where each object colliding with the Mob would give it a new velocity to move to 
+which would be added to other velocities to make the final movement. This does not gaurntee that the mob will not collide with another, but it should 
+move it in the direction it needs to move to avoid colliding over time. I also used the colliding mob's mass divided by the current mob's mass as a 
+coeffiecient for the added velocity to move smaller mobs more than larger ones. I decided to handle buildings the same way as Mobs by making sure they 
+inherit from Attackable (which it seemed like they should have anyways) and giving that a definition of mass which Buildings set to a high number in 
+order to max out the new velocity away from them. The river I handled a bit differently as I just checked to see if a mob was within it and moved it 
+to whichever side of the river made the most sense. 
+
+I think this collision system works pretty well with mobs that need to move around each other. There are things I could improve like Mobs slowing down 
+a bit when going around the corner of something they are colliding with, which seemed like it would be more of a hassle than it is worth. There are also 
+some design decisions that I don't feel entirely comfortable with, but they were much simpler than trying to figure out a workaround.
